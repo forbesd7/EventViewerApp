@@ -54,11 +54,13 @@ class CreateEvent extends Component {
         <FormControl>
           <InputLabel htmlFor="event-name">Event Name</InputLabel>
           <Input
+            size="medium"
             onChange={this.setEventName}
             id="event-name"
             aria-describedby="my-helper-text"
           />
           <TextField
+            size="medium"
             id="event-date-time"
             label="Event time and date"
             type="datetime-local"
@@ -69,7 +71,13 @@ class CreateEvent extends Component {
               shrink: true
             }}
           />
-          <Button onClick={this.addEventToDataBase}>Submit Event</Button>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.addEventToDataBase}
+          >
+            Submit Event
+          </Button>
         </FormControl>
       </div>
     );

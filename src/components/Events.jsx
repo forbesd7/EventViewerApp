@@ -24,11 +24,12 @@ class Events extends Component {
         let eventCreator = eventData.created_by;
         return (
           <Event
+            key={index}
             eventId={event.id}
             eventName={eventName}
             eventTime={eventTime}
             eventDate={eventDate}
-            getEvents={this.getEvents}
+            getEvents={this.props.getEvents}
             eventCreator={eventCreator}
           />
         );
