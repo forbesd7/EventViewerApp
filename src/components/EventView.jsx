@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import CreateEvent from "./CreateEvent";
 import Events from "./Events";
+import "./styles/EventView.css";
 import { database } from "../firebase";
 class EventView extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class EventView extends Component {
 
   render() {
     return (
-      <div>
+      <div className="eventViewContainer">
         <CreateEvent getEvents={this.getEvents} />
         <Events
           isLoading={this.state.isLoading}

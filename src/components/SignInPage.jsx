@@ -1,12 +1,12 @@
 import React, { Component, Fragment } from "react";
-import { Button } from "@material-ui/core";
+import { Button, Typography } from "@material-ui/core";
 import { database, provider, auth } from "../firebase";
 import EventView from "./EventView";
 class SignInPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: "s"
+      user: null
     };
   }
 
@@ -30,7 +30,18 @@ class SignInPage extends Component {
     if (this.state.user !== null) {
       return <EventView />;
     } else {
-      return <Button onClick={this.signInAndCreateUser}>Sign in</Button>;
+      return (
+        <div>
+          <Typography variant="h1">Event Viewer</Typography>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={this.signInAndCreateUser}
+          >
+            Sign in
+          </Button>
+        </div>
+      );
     }
   };
   render() {

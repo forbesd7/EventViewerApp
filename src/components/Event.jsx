@@ -6,7 +6,8 @@ import {
   DialogContentText,
   DialogActions,
   Button,
-  TextField
+  TextField,
+  Typography
 } from "@material-ui/core";
 import { database } from "../firebase";
 
@@ -55,10 +56,12 @@ class Event extends Component {
   render() {
     return (
       <div>
-        <div onClick={this.editEvent}>Edit Event</div>
-        <div>{this.props.eventName}</div>
-        <div>{this.props.eventTime}</div>
-        <div>{this.props.eventDate}</div>
+        <Button variant="contained" color="primary" onClick={this.editEvent}>
+          Edit Event
+        </Button>
+        <Typography>Event Name:{this.props.eventName}</Typography>
+        <Typography>{this.props.eventTime}</Typography>
+        <Typography>{this.props.eventDate}</Typography>
         <Dialog
           open={this.state.dialogOpen}
           onClose={this.handleClose}

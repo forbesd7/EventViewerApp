@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { database } from "../firebase";
 import Event from "./Event";
 class Events extends Component {
   constructor(props) {
