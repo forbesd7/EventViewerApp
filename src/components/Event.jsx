@@ -8,11 +8,15 @@ import {
   Button,
   TextField
 } from "@material-ui/core";
+import { database } from "firebase";
 class Event extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dialogOpen: false
+      dialogOpen: false,
+      editedEventName: "",
+      editedEventDate: "",
+      editedEventTime: ""
     };
   }
 
@@ -22,6 +26,20 @@ class Event extends Component {
   editEvent = () => {
     this.setState({ dialogOpen: true });
   };
+
+  setEventDate = e => {
+    this.setState({ editedEventDate: e.target.value });
+    console.log(this.state);
+  };
+  setEventTime = e => {
+    this.setState({ editedEventTime: e.target.value });
+    console.log(this.state);
+  };
+  setEventName = e => {
+    this.setState({ editedEventName: e.target.value });
+  };
+
+  editEvent = () => {};
   render() {
     return (
       <div>
@@ -45,24 +63,25 @@ class Event extends Component {
               id="name"
               label="Event Name"
               type="text"
+              onChange={this.setEventName}
               fullWidth
             />
 
             <TextField
               autoFocus
               margin="dense"
-              id="name"
-              label="Event Date"
-              type="text"
+              id="event-date"
+              type="date"
+              onChange={this.setEventDate}
               fullWidth
             />
 
             <TextField
               autoFocus
               margin="dense"
-              id="name"
-              label="Event Time"
-              type="text"
+              id="event-time"
+              type="time"
+              onChange={this.setEventTime}
               fullWidth
             />
           </DialogContent>
@@ -70,7 +89,7 @@ class Event extends Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.editEvent} color="primary">
               Submit
             </Button>
           </DialogActions>
