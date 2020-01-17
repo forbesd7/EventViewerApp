@@ -22,7 +22,7 @@ class EventView extends Component {
   render() {
     return (
       <div className="eventViewContainer">
-        <CreateEvent getEvents={this.getEvents} />
+        <CreateEvent user={this.props.user} getEvents={this.getEvents} />
         <Events
           isLoading={this.state.isLoading}
           events={this.state.events}

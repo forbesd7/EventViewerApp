@@ -60,6 +60,10 @@ class Event extends Component {
         <Typography variant="h4">Name:{this.props.eventName}</Typography>
         <Typography variant="h4">Time:{this.props.eventTime}</Typography>
         <Typography variant="h4">Date:{this.props.eventDate}</Typography>
+        <Typography variant="h4">
+          Created by: {this.props.eventCreator}
+        </Typography>
+
         <Button variant="contained" color="primary" onClick={this.editEvent}>
           Edit Event
         </Button>

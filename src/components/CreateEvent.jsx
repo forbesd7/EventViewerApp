@@ -39,7 +39,8 @@ class CreateEvent extends Component {
         .add({
           event_name: curEventName,
           event_date: curEventDate,
-          event_time: curEventTime
+          event_time: curEventTime,
+          created_by: this.props.user.displayName
         })
         .then(res => {
           this.props.getEvents();

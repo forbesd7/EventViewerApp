@@ -28,7 +28,7 @@ class SignInPage extends Component {
 
   renderView = () => {
     if (this.state.user !== null) {
-      return <EventView />;
+      return <EventView user={this.state.user} />;
     } else {
       return (
         <div>

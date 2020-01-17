@@ -21,6 +21,7 @@ class Events extends Component {
         let eventName = eventData.event_name;
         let eventTime = eventData.event_time;
         let eventDate = eventData.event_date;
+        let eventCreator = eventData.created_by;
         return (
           <Event
             eventId={event.id}
@@ -28,6 +29,7 @@ class Events extends Component {
             eventTime={eventTime}
             eventDate={eventDate}
             getEvents={this.getEvents}
+            eventCreator={eventCreator}
           />
         );
       });
