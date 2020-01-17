@@ -1,8 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
+import { Button } from "@material-ui/core";
 import "./App.css";
 
-function App() {
-  return <div className="App">hi</div>;
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null
+    };
+  }
+  render() {
+    return (
+      <div>
+        <Button>Sign in </Button>
+      </div>
+    );
+  }
 }
 
 export default App;
