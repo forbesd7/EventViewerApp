@@ -34,6 +34,7 @@ class Events extends Component {
         let eventDate = eventData.event_date;
         return (
           <Event
+            eventId={event.id}
             eventName={eventName}
             eventTime={eventTime}
             eventDate={eventDate}
