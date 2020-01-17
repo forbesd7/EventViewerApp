@@ -8,7 +8,8 @@ import {
   Button,
   TextField
 } from "@material-ui/core";
-import { database } from "firebase";
+import { database } from "../firebase";
+
 class Event extends Component {
   constructor(props) {
     super(props);
@@ -29,17 +30,28 @@ class Event extends Component {
 
   setEventDate = e => {
     this.setState({ editedEventDate: e.target.value });
-    console.log(this.state);
   };
   setEventTime = e => {
     this.setState({ editedEventTime: e.target.value });
-    console.log(this.state);
   };
   setEventName = e => {
     this.setState({ editedEventName: e.target.value });
   };
 
-  editEvent = () => {};
+  editEventInDatabase = () => {
+    database
+      .collection("events")
+      .doc(this.props.eventId)
+      .set({
+        event_date: this.state.editedEventDate,
+        event_time: this.state.editedEventTime,
+        event_name: this.state.editedEventName
+      })
+      .then(res => {
+        this.handleClose();
+        this.props.getEvents();
+      });
+  };
   render() {
     return (
       <div>
@@ -89,7 +101,7 @@ class Event extends Component {
             <Button onClick={this.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.editEvent} color="primary">
+            <Button onClick={this.editEventInDatabase} color="primary">
               Submit
             </Button>
           </DialogActions>

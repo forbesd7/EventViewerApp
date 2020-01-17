@@ -38,6 +38,7 @@ class Events extends Component {
             eventName={eventName}
             eventTime={eventTime}
             eventDate={eventDate}
+            getEvents={this.getEvents}
           />
         );
       });
