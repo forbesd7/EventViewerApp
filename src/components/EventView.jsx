@@ -5,7 +5,7 @@ import { database } from "../firebase";
 class EventView extends Component {
   constructor(props) {
     super(props);
-    this.state = { events: [] };
+    this.state = { events: [], isLoading: false };
   }
 
   getEvents = () => {
@@ -22,7 +22,11 @@ class EventView extends Component {
     return (
       <div>
         <CreateEvent getEvents={this.getEvents} />
-        <Events events={this.state.events} getEvents={this.getEvents} />
+        <Events
+          isLoading={this.state.isLoading}
+          events={this.state.events}
+          getEvents={this.getEvents}
+        />
       </div>
     );
   }

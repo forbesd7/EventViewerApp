@@ -34,11 +34,16 @@ class CreateEvent extends Component {
       const splitCurEventDateAndTime = curEventDateAndTime.split("T");
       const curEventDate = splitCurEventDateAndTime[0];
       const curEventTime = splitCurEventDateAndTime[1];
-      database.collection("events").add({
-        event_name: curEventName,
-        event_date: curEventDate,
-        event_time: curEventTime
-      });
+      database
+        .collection("events")
+        .add({
+          event_name: curEventName,
+          event_date: curEventDate,
+          event_time: curEventTime
+        })
+        .then(res => {
+          this.props.getEvents();
+        });
       //update the events with the event that was just added
     }
   };

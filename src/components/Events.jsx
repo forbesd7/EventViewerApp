@@ -10,24 +10,14 @@ class Events extends Component {
     };
   }
   componentDidMount() {
-    this.getEvents();
+    this.props.getEvents();
   }
 
-  getEvents = () => {
-    this.setState({ isLoading: true });
-    database
-      .collection("events")
-      .get()
-      .then(res => {
-        this.setState({ events: res.docs, isLoading: false });
-      });
-  };
-
   renderEvents = () => {
-    if (this.state.isLoading) {
+    if (this.props.isLoading) {
       return <div>loading...</div>;
     } else {
-      return this.state.events.map((event, index) => {
+      return this.props.events.map((event, index) => {
         let eventData = event.data();
         let eventName = eventData.event_name;
         let eventTime = eventData.event_time;
