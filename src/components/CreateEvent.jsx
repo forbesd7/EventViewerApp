@@ -3,7 +3,8 @@ import {
   FormControl,
   InputLabel,
   Input,
-  FormHelperText
+  FormHelperText,
+  TextField
 } from "@material-ui/core";
 class CreateEvent extends Component {
   constructor(props) {
@@ -14,11 +15,18 @@ class CreateEvent extends Component {
     return (
       <div>
         <FormControl>
-          <InputLabel htmlFor="event-name">Event</InputLabel>
+          <InputLabel htmlFor="event-name">Event Name</InputLabel>
           <Input id="event-name" aria-describedby="my-helper-text" />
-          <FormHelperText id="my-helper-text">
-            Enter the name of your event
-          </FormHelperText>
+          <TextField
+            id="event-date-time"
+            label="Event time and date"
+            type="datetime-local"
+            defaultValue="2019-01-17T10:30"
+            aria-describedby="event-helper-text"
+            InputLabelProps={{
+              shrink: true
+            }}
+          />
         </FormControl>
       </div>
     );
