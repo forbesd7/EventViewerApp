@@ -11,8 +11,8 @@ class CreateEvent extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      curEventName: "",
-      curEventDateAndTime: ""
+      curEventName: null,
+      curEventDateAndTime: null
     };
   }
 
@@ -31,7 +31,7 @@ class CreateEvent extends Component {
     const curEventDate = splitCurEventDateAndTime[0];
     const curEventTime = splitCurEventDateAndTime[1];
     console.log(splitCurEventDateAndTime);
-    if (curEventName === null) {
+    if (curEventName === null || curEventDateAndTime === null) {
       alert("Please enter a name for your event ");
     } else {
       database.collection("events").add({
