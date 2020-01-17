@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "@material-ui/core";
+import { signIn } from "./utils";
 import "./App.css";
 
 class App extends Component {
@@ -9,10 +10,11 @@ class App extends Component {
       user: null
     };
   }
+
   render() {
     return (
       <div>
-        <Button>Sign in </Button>
+        <Button onClick={signIn}>Sign in </Button>
       </div>
     );
   }
