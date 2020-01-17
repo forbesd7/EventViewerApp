@@ -1,6 +1,6 @@
 import { database, provider, auth } from "./firebase";
 
-const signIn = () => {
+const signInAndCreateUser = () => {
   auth
     .signInWithPopup(provider)
     .then(result => {
@@ -8,7 +8,8 @@ const signIn = () => {
         name: result.user.displayName,
         email: result.user.email
       });
-      console.log("user added");
+      console.log("async", result);
+      return result;
     })
     //TODO: put in an error page here
     .catch(err => {
@@ -18,11 +19,8 @@ const signIn = () => {
 
 const signOut = () => {
   auth.signOut().then(result => {
-    this.setState({
-      user: null
-    });
     console.log("signed out");
   });
 };
 
-export { signIn, signOut };
+export { signInAndCreateUser, signOut };

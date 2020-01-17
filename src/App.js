@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Button } from "@material-ui/core";
-import { signIn } from "./utils";
+import SignInPage from "./components/SignInPage";
 import "./App.css";
 
 class App extends Component {
@@ -14,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Button onClick={signIn}>Sign in </Button>
+        <SignInPage />
       </div>
     );
   }
