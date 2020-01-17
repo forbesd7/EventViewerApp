@@ -27,13 +27,13 @@ class CreateEvent extends Component {
 
   addEventToDataBase = () => {
     const { curEventDateAndTime, curEventName } = this.state;
-    const splitCurEventDateAndTime = curEventDateAndTime.split("T");
-    const curEventDate = splitCurEventDateAndTime[0];
-    const curEventTime = splitCurEventDateAndTime[1];
-    console.log(splitCurEventDateAndTime);
+
     if (curEventName === null || curEventDateAndTime === null) {
       alert("Please enter a name for your event ");
     } else {
+      const splitCurEventDateAndTime = curEventDateAndTime.split("T");
+      const curEventDate = splitCurEventDateAndTime[0];
+      const curEventTime = splitCurEventDateAndTime[1];
       database.collection("events").add({
         event_name: curEventName,
         event_date: curEventDate,
